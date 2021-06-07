@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:quotes_app/quote.dart';
-import 'package:quotes_app/quotes.dart';
+import 'package:quotes_app/models/quote.dart';
+import 'package:quotes_app/logic/quotes.dart';
 
 class QuotesAPI extends QuotesDataSource {
   @override

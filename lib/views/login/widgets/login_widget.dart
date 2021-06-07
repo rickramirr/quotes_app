@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:quotes_app/accounts.dart';
-import 'package:quotes_app/constants.dart';
-import 'package:quotes_app/quote_page.dart';
+import 'package:quotes_app/logic/accounts.dart';
+import 'package:quotes_app/utils/constants.dart';
+import 'package:quotes_app/views/quote/quote_page.dart';
 
 class LoginWidget extends StatefulWidget {
   @override

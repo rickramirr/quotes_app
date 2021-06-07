@@ -1,4 +1,4 @@
-import 'package:quotes_app/quote.dart';
+import 'package:quotes_app/models/quote.dart';
 
 abstract class QuotesDataSource {
   Future<Quote> getRandomQuote();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quotes_app/login_widget.dart';
+import 'package:quotes_app/views/login/widgets/login_widget.dart';
 
 class LoginPage extends StatelessWidget {
   @override

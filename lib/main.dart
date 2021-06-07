@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quotes_app/constants.dart';
-import 'package:quotes_app/login_page.dart';
-import 'package:quotes_app/quote_page.dart';
+import 'package:quotes_app/utils/constants.dart';
+import 'package:quotes_app/views/login/login_page.dart';
+import 'package:quotes_app/views/quote/quote_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {

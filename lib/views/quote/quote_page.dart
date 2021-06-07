@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:quotes_app/constants.dart';
-import 'package:quotes_app/login_page.dart';
-import 'package:quotes_app/quote.dart';
-import 'package:quotes_app/quotes.dart';
-import 'package:quotes_app/quotes_api.dart';
+import 'package:quotes_app/utils/constants.dart';
+import 'package:quotes_app/views/login/login_page.dart';
+import 'package:quotes_app/models/quote.dart';
+import 'package:quotes_app/logic/quotes.dart';
+import 'package:quotes_app/dataSource/quotes_api.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuotesPage extends StatelessWidget {
+  
+  final quotes = Quotes(QuotesAPI());
+
   @override
   Widget build(BuildContext context) {
-    final quotes = Quotes(QuotesAPI());
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Your Quote"),
