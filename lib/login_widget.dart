@@ -25,7 +25,11 @@ class LoginWidgetState extends State<LoginWidget> {
             },
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-                hintText: "algo@gmail.com", labelText: "Email")),
+              hintText: "something@gmail.com",
+              labelText: "Email"
+            )
+        ),
+        SizedBox(height: 16),
         TextFormField(
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -36,11 +40,13 @@ class LoginWidgetState extends State<LoginWidget> {
             keyboardType: TextInputType.text,
             obscureText: true,
             decoration: InputDecoration(
-                hintText: "123456 or whatever", labelText: "Password")),
+                hintText: "123456 or whatever", labelText: "Password")
+        ),
+        SizedBox(height: 16),
         ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => QuotesPage()),
                 );
