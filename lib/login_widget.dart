@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:quotes_app/accounts.dart';
+import 'package:quotes_app/constants.dart';
 import 'package:quotes_app/quote_page.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -69,6 +70,7 @@ class LoginWidgetState extends State<LoginWidget> {
     try {
       final account = await _accounts.authenticateByEmailAndPassword(email, password);
       toggleLoadingState();
+      Constants.prefs!.setBool("isLoggedIn", true);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => QuotesPage()),

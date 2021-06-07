@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:quotes_app/constants.dart';
+import 'package:quotes_app/login_page.dart';
 import 'package:quotes_app/quote.dart';
 import 'package:quotes_app/quotes.dart';
 import 'package:quotes_app/quotes_api.dart';
@@ -16,7 +18,11 @@ class QuotesPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-
+              Constants.prefs!.setBool("isLoggedIn", false);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
             },
             icon: Icon(Icons.exit_to_app)
           )
