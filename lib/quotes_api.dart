@@ -14,7 +14,7 @@ class QuotesAPI extends QuotesDataSource {
       final Map<String, dynamic> quoteData = data['contents']['quotes'][0];
       return Quote.fromJson(quoteData);
     } else {
-      throw Exception("Failed to load");
+      return Future.error(response.reasonPhrase.toString());
     }
   }
 }

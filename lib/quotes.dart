@@ -10,6 +10,10 @@ class Quotes {
   Quotes(this._dataSource);
 
   Future<Quote> getRandomQuote() async {
-    return await _dataSource.getRandomQuote();
+    try {
+      return await _dataSource.getRandomQuote();
+    } catch (e) {
+      return Future.error(e.toString());
+    }
   }
 }
