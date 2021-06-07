@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:quotes_app/accounts.dart';
 import 'package:quotes_app/quote_page.dart';
 
 class LoginWidget extends StatefulWidget {
@@ -10,6 +12,10 @@ class LoginWidget extends StatefulWidget {
 
 class LoginWidgetState extends State<LoginWidget> {
   final _formKey = GlobalKey<FormState>();
+  final _accounts = Accounts();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  var _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +23,7 @@ class LoginWidgetState extends State<LoginWidget> {
       key: _formKey,
       child: Column(children: [
         TextFormField(
+          controller: _emailController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Please enter some text";
@@ -31,6 +38,7 @@ class LoginWidgetState extends State<LoginWidget> {
         ),
         SizedBox(height: 16),
         TextFormField(
+          controller: _passwordController,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return "Please enter some text";
@@ -44,16 +52,36 @@ class LoginWidgetState extends State<LoginWidget> {
         ),
         SizedBox(height: 16),
         ElevatedButton(
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuotesPage()),
-                );
-              }
-            },
-            child: Text("Log in"))
+          onPressed: _isLoading ? null : onTapLogin,
+          child: Text("Log in")
+        )
       ]),
     );
+  }
+
+  void onTapLogin() async {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+    toggleLoadingState();
+    final email = _emailController.text;
+    final password = _passwordController.text;
+    try {
+      final account = await _accounts.authenticateByEmailAndPassword(email, password);
+      toggleLoadingState();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => QuotesPage()),
+      );
+    } catch(e) {
+      toggleLoadingState();
+      Fluttertoast.showToast(msg: e.toString());
+    }
+  }
+
+  void toggleLoadingState() {
+    setState(() {
+      _isLoading = !_isLoading;
+    });
   }
 }
