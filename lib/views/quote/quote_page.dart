@@ -4,7 +4,7 @@ import 'package:quotes_app/utils/constants.dart';
 import 'package:quotes_app/views/login/login_page.dart';
 import 'package:quotes_app/models/quote.dart';
 import 'package:quotes_app/logic/quotes.dart';
-import 'package:quotes_app/dataSource/quotes_api.dart';
+import 'package:quotes_app/data_source/quotes_api.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuotesPage extends StatelessWidget {
