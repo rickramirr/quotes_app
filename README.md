@@ -1,16 +1,13 @@
 # quotes_app
 
-A new Flutter project.
+An application to check a random quote.
 
-## Getting Started
+***
 
-This project is a starting point for a Flutter application.
+In the app specification this app should get a random quote but this API has a cost so I decided to use a free endpoint that get the quote of the day.
 
-A few resources to get you started if this is your first Flutter project:
+The app login is mocked, a valid user to login is:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Email: rick@gmail.com
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Password: passwordlol
